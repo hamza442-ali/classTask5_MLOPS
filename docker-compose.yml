@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URI=mongodb+srv://hamza:Hamza123@cluster0.ngoneek.mongodb.net/mlopsTask5?retryWrites=true&w=majority&appName=Cluster0
+  frontend:
+    build: ./frontend/my-feedback 
+    ports:
+      - "80:3000"
+    depends_on:
+      - backend
